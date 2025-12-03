@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warzywniak Owocek | Świeże i Lokalne</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Warzywniak <span>Owocek</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Start</a></li> <!--# oznacza ze link prowadzi do sekcji na tej samej stronie-->
+            <li><a href="#oferta">Oferta</a></li>
+            <li><a href="#onas">O nas</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <h1>Poczuj smak natury</h1>
+        <p>Najświeższe warzywa i owoce od lokalnych dostawców.</p>
+        <a href="#oferta" class="btn">Zobacz co mamy dziś</a>
+    </header>
+
+    <section id="oferta" class="container">
+        <h2 class="section-title">Nasza Oferta</h2>
+        
+        <div class="filter-container">
+            <input type="text" id="searchInput" placeholder="Szukaj produktu...">
+            <br><br> <button class="filter-btn active" onclick="filterProducts('all')">Wszystko</button>
+            <button class="filter-btn" onclick="filterProducts('warzywa')">Warzywa</button>
+            <button class="filter-btn" onclick="filterProducts('owoce')">Owoce</button>
+        </div>
+        <div class="products-grid">
+            
+            <div class="product-card" data-category="warzywa">
+                <img src="zdjecia\marchewka.jpg" alt="Marchew" class="product-img">
+                <div class="product-info">
+                    <h3>Polska Marchew</h3>
+                    <span class="category-tag">Warzywa</span>
+                    <div class="price">3.50 zł / kg</div>
+                    <p>Słodka, chrupiąca, idealna na sok.</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="owoce">
+                <img src="zdjecia\jablko.jpg" alt="Jabłka" class="product-img">
+                <div class="product-info">
+                    <h3>Jabłka Ligol</h3>
+                    <span class="category-tag">Owoce</span>
+                    <div class="price">4.20 zł / kg</div>
+                    <p>Soczyste jabłka z grójeckich sadów.</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="warzywa">
+                <img src="zdjecia\pomidor.jpg" alt="Pomidory" class="product-img">
+                <div class="product-info">
+                    <h3>Pomidory Malinowe</h3>
+                    <span class="category-tag">Warzywa</span>
+                    <div class="price">12.90 zł / kg</div>
+                    <p>Pachnące słońcem, pełne smaku.</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="owoce">
+                <img src="zdjecia\banan.jpg" alt="Banany" class="product-img">
+                <div class="product-info">
+                    <h3>Banany</h3>
+                    <span class="category-tag">Owoce</span>
+                    <div class="price">6.99 zł / kg</div>
+                    <p>Idealnie dojrzałe, źródło potasu.</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="warzywa">
+                <img src="zdjecia\ziemniak.jpg" alt="Ziemniaki" class="product-img">
+                <div class="product-info">
+                    <h3>Ziemniaki Młode</h3>
+                    <span class="category-tag">Warzywa</span>
+                    <div class="price">2.50 zł / kg</div>
+                    <p>Delikatna skórka, świetne z koperkiem.</p>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="owoce">
+                <img src="zdjecia\truskawka.jpg" alt="Truskawki" class="product-img">
+                <div class="product-info">
+                    <h3>Truskawki</h3>
+                    <span class="category-tag">Owoce</span>
+                    <div class="price">18.00 zł / łubianka</div>
+                    <p>Słodkie, polskie truskawki.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="onas" class="about-section">
+        <div class="container">
+            <h2>Dlaczego Owocek?</h2>
+            <p style="max-width: 700px; margin: 20px auto;">
+                Jesteśmy małym, rodzinnym warzywniakiem. Codziennie rano odwiedzamy lokalną giełdę rolną, 
+                aby wybrać dla Was tylko to, co najlepsze. Nie magazynujemy towaru tygodniami - u nas liczy się 
+                świeżość i jakość, której nie znajdziesz w markecie.
+            </p>
+        </div>
+    </section>
+
+    <footer id="kontakt">
+        <h3>Warzywniak Owocek</h3>
+        <div class="contact-info">
+            <p> Adres: Wielicka 26 Kraków</p>
+            <p>Tel: 123 456 789</p>
+            <p>Otwarte: Pon-Pt 7:00 - 19:00, Sob 8:00 - 14:00</p>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy;Warzywniak Owocek. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+ <script>
+    //funkcja uruchamia się po kliknięciu przycisku 
+    // dzięki onclick="filterProducts('warzywa')" w HTML.
+    function filterProducts(category) {
+        const cards = document.querySelectorAll('.product-card');
+        const buttons = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('searchInput');
+
+        // tworzymy zmienne (const)
+        // ktore sa uchwytami do elementow na stronie
+        // querySelectorAll znajduje wszystkie elementy o danej klasie 
+        // i tworzy z nich listę
+
+        //jesli uzytkownik cos wpisal w wyszukiwarke a potem kliknal "Warzywa"
+        // czyszcenie pola szukania przy zmianie kategorii zeby nie mieszać
+        searchInput.value = '';
+
+        buttons.forEach(btn => {
+            btn.classList.remove('active'); //usuwamy klasę active ze wszystkich przyciskow (zeby przestaly sie swiecic)
+            if (event.target === btn) { //przycisk wcisniety?
+                btn.classList.add('active');
+            }
+        });
+
+        cards.forEach(card => {
+            const productCategory = card.getAttribute('data-category'); //odczytujemy z html czy to warz czy owoc
+            if (category === 'all' || productCategory === category) {
+                card.style.display = 'block'; //pokazujemy
+            } else {
+                card.style.display = 'none'; //ukrywamy
+            }
+        });
+    }
+
+    // funkcja wyszukiwania po nazwie
+    //podpinamy ucho pod pole tekstowe
+    document.getElementById('searchInput').addEventListener('keyup', function(e) { //keyup - user puszcza klawisz
+        const searchText = e.target.value.toLowerCase(); //to co wpisal w pole
+        const cards = document.querySelectorAll('.product-card');
+        const buttons = document.querySelectorAll('.filter-btn');
+
+        // usuwamy klase active z przyciskow kategorii
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        cards.forEach(card => {
+            // dla kazdej karty wchodzimy do jej srodka card.querySelector('h3')
+            const productName = card.querySelector('h3').innerText.toLowerCase();
+
+            // jesli nazwa zawiera wpisany tekst -> pokaz
+            // jesli nie -> ukryj
+            if (productName.includes(searchText)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
+</html>

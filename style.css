@@ -1,0 +1,280 @@
+@font-face {
+    font-family: 'SuperMoods';
+    src: url('super-moods-font/SuperMoods-PVX0r.ttf') format('truetype');
+}
+
+/*najwyzszy element w strukturze dokumentu*/
+:root {
+    --primary-color: #4CAF50; /* -- zmienna css*/
+    --secondary-color: #FF9800;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --white: #fff;
+}
+
+* { /*wybiera wszystkie elementy na stronie*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /*normalnie, jesli szerokość 100px i 20px paddingu to element urosnie do 140px
+    border-box -> padding wchodzi do srodka, wiec element ma 100px szerokości*/
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* nawigacja*/
+nav {
+    background: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; /*przykleja sie do gory ekranu przy przewijaniu*/
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 5%;
+    display: flex; /*w rzedzie*/
+    justify-content: space-between; /*rozpycha elementy na boki*/
+    align-items: center;
+}
+
+.logo { /*klasa logo*/
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.logo span { /*sluzy do wydzielenia fragmentu tekstu wewnatrz innej linii zeby go inaczej stylizowac*/
+    color: var(--secondary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* cover photo */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("cover_photo.webp");
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-family: 'SuperMoods', sans-serif; 
+    font-size: 5rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px; 
+}
+
+.btn {
+    padding: 10px 25px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #45a049;
+}
+
+/* produkty */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+/* filtrowanie */
+.filter-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    margin: 0 5px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* siatka produktów */
+.products-grid {
+    display: grid; /*siatka 2d*/
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*kolumna ma mieć minimum 250px. jesli jest więcej miejsca (1fr) ma się rozciagnac*/
+    /*auto-fit: przegladarka sama oblicza ile kolumn zmiesci siw w jednym rzedzie*/
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.price {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.category-tag {
+    background: #e8f5e9;
+    color: var(--primary-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* o nas i footer */
+.about-section {
+    background: var(--white);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+footer {
+    background: var(--dark-color);
+    color: var(--white);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+/* responsywnosc */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    nav { flex-direction: column; gap: 10px; } /*menu i kontakt kontekt zmienia sie na pionowe*/
+}
+
+/* kontakt */
+
+/* mniejszy hero dla podstrony */
+.contact-hero {
+    height: 40vh;
+    min-height: 300px;
+}
+
+/*mapa + dane */
+.contact-page-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* dwie rowne kolumny */
+    gap: 40px;
+    align-items: start;
+}
+
+.info-box {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.info-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    height: 100%;
+    min-height: 400px;
+}
+
+.map-container iframe {
+    display: block; /* Usuwa puste miejsce pod mapą */
+}
+
+/* Responsywność dla kontaktu (na telefonie jedno pod drugim) */
+@media (max-width: 768px) {
+    .contact-page-container {
+        grid-template-columns: 1fr; /* Jedna kolumna */
+    }
+    
+    .map-container {
+        min-height: 300px; /* Nieco niższa mapa na telefonie */
+    }
+}
+
+#searchInput {
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 300px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    text-align: center;
+}
+
+#searchInput:focus {
+    border-color: var(--primary-color);
+}

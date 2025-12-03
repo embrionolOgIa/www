@@ -1,0 +1,66 @@
+<!DOCTYPE html> <!--nformuje przegladarkę, ze używamy najnowszego standardu HTML5-->
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--dopasowuje skale do szerokosci ekranu-->
+    <title>Kontakt | Warzywniak Owocek</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Warzywniak <span>Owocek</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Start</a></li>
+            <li><a href="index.html#oferta">Oferta</a></li> <!--# oznacza ze link prowadzi do sekcji na tej samej stronie-->
+            <li><a href="index.html#onas">O nas</a></li>
+            <li><a href="#" class="active-link">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero contact-hero">
+        <h1>Czekamy na Ciebie</h1>
+        <p>Masz pytania o dostępność produktów? Zadzwoń lub odwiedź nas!</p>
+    </header>
+
+    <section class="container contact-page-container">
+        
+        <div class="contact-details">
+            <h2 class="section-title">Dane kontaktowe</h2>
+            <div class="info-box">
+                <h3>Adres</h3>
+                <p>ul. Wielicka 26</p>
+                <p>30-552 Kraków</p>
+            </div>
+            <div class="info-box">
+                <h3>Telefon</h3>
+                <p><a href="tel:123456789">123 456 789</a></p>
+            </div>
+            <div class="info-box">
+                <h3>Godziny otwarcia</h3>
+                <p>Poniedziałek - Piątek: 7:00 - 19:00</p>
+                <p>Sobota: 8:00 - 14:00</p>
+                <p>Niedziela: Zamknięte</p>
+            </div>
+        </div>
+
+        <div class="map-container"> <!--"okno w oknie" pozwala osadzic inna strone internetowa-->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2562.986337839356!2d19.95758531571658!3d50.03043897941961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b4515555555%3A0x5555555555555555!2sWielicka%2026%2C%2030-552%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1620000000000!5m2!1spl!2spl" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"> <!--mapa zaladuje sie dopiero, gdy uzytkownik przewinie do niej strone-->
+            </iframe>
+        </div>
+
+    </section>
+
+    <footer>
+        <h3>Warzywniak Owocek</h3>
+        <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.7;">&copy; Warzywniak Owocek. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+</body>
+</html>
